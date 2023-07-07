@@ -1,0 +1,20 @@
+<div class="root">
+  <div class="container-shell">
+    <div class="container-shell-title">Angular jessibuca demo player</div>
+    <div id="container" #container></div>
+    <div class="input">
+      <div>输入URL：</div>
+      <input type="input" autocomplete="on" [(ngModel)]="playUrl"/>
+      <div *ngIf="!playing; then playBlock else pauseBlock"></div>
+      <ng-template #playBlock>
+        <button (click)="play()">播放</button>
+      </ng-template>
+      <ng-template #pauseBlock>
+        <button (click)="pause()">暂停</button>
+      </ng-template>
+    </div>
+    <div class="input">
+      <button (click)="destroy()">销毁</button>
+    </div>
+  </div>
+</div>
